@@ -1,1 +1,11 @@
-render.yaml
+services:
+  - type: web
+    name: tadu-crawler
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: "npm install && npx playwright install chromium"
+    startCommand: "node server.js"
+    envVars:
+      - key: PORT
+        value: "10000"
