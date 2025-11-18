@@ -196,8 +196,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/crawl', async (req, res) => {
-    const pageNum = parseInt(req.query.page) || 1;
-    const numChapters = parseInt(req.query.num_chapters) || 5;
     const browser = await chromium.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -214,9 +212,11 @@ app.get('/crawl', async (req, res) => {
 
 
 
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
 
