@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "postinstall": "npx playwright install"
-  },
+"scripts": {
+  "start": "npx playwright install chromium && node server.js",
+  "postinstall": "npx playwright install chromium"
+}
+,
   "engines": {
     "node": ">=20.0.0"
   },
