@@ -3,7 +3,10 @@ import { chromium } from 'playwright';
 import dotenv from 'dotenv';
 dotenv.config(); // Load biến môi trường từ .env
 const app = express();
-
+const browser = await chromium.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
 const BASE_URL = 'https://www.writerworking.net';
 
 // --- Tối ưu: số trang song song ---
@@ -208,6 +211,7 @@ app.get('/crawl', async (req, res) => {
         await browser.close();
     }
 });
+
 
 
 const PORT = process.env.PORT || 3000;
